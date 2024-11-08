@@ -25,3 +25,4 @@ class WorkoutSession(models.Model):
 
     def __str__(self):
         return f"Workout for {self.user.username} - {self.get_workout_goal_display()}"
+
