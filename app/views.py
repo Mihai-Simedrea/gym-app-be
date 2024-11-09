@@ -1,4 +1,3 @@
-# views.py
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -17,23 +16,48 @@ def add_user_workout_profile(request):
 
 def generate_exercises(frequency, goal):
     # Sample workout plan based on frequency and goal
-    exercises = {
-        "Weight Loss": ["Cardio", "HIIT", "Circuit Training"],
-        "Muscle Gain": ["Weight Lifting", "Strength Training", "Compound Movements"],
-        "Toning": ["Pilates", "Yoga", "Light Weights"],
+    exercises_data = {
+        "Weight Loss": [
+            {"name": "Running", "reps": "30"},
+            {"name": "Jump Rope", "reps": "3"},
+            {"name": "Burpees", "reps": "3"},
+        ],
+        "Muscle Gain": [
+            {"name": "Squats", "reps": "4"},
+            {"name": "Deadlifts", "reps": "4"},
+            {"name": "Bench Press", "reps": "4"},
+        ],
+        "Toning": [
+            {"name": "Pilates", "reps": "45"},
+            {"name": "Yoga", "reps": "45"},
+            {"name": "Light Weights", "reps": "3"},
+        ],
+        "Endurance": [
+            {"name": "Running", "reps": "5"},
+            {"name": "Cycling", "reps": "10"},
+            {"name": "Swimming", "reps": "30"},
+        ],
     }
 
-    # Adjust workout based on the frequency
+    # Default exercises if the goal is not matched
+    exercises = exercises_data.get(goal, [
+        {"name": "General Fitness", "reps": "30"}
+    ])
+
+    # Adjust workout based on frequency
     workout_plan = []
     for day in range(frequency):
-        workout_plan.append(
-            {
-                "day": f"Day {day + 1}",
-                "exercise": exercises.get(goal, ["General Fitness"])[
-                    day % len(exercises[goal])
-                ],
-            }
-        )
+        daily_workout = {
+            "name": f"Day {day + 1}",
+            "exercises": [],
+        }
+
+        # Add exercises to the workout for this day
+        for exercise in exercises:
+            daily_workout["exercises"].append(exercise)
+
+        workout_plan.append(daily_workout)
+
     return workout_plan
 
 
