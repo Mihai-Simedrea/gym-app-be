@@ -1,7 +1,8 @@
+# urls.py in your main project folder
 from django.contrib import admin
-from django.urls import path, include  # Import include
+from django.urls import include, path
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("api/", include("app.urls")),  # Include the URLs from gym_app
+    path('admin/', admin.site.urls),
+    path('', include('app.urls')),
 ]

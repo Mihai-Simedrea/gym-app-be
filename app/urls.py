@@ -1,8 +1,7 @@
-# gym_app/urls.py
-
+# urls.py in your app
 from django.urls import path
-from .views import UserProfileWorkoutView
+from .views import add_user_workout_profile
 
 urlpatterns = [
-    path("add-profile-workout/", UserProfileWorkoutView.as_view(), name="add-profile-workout"),
+    path('api/add-workout-profile/', add_user_workout_profile, name='add-workout-profile'),
 ]
