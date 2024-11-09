@@ -60,6 +60,9 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:4200",
 ]
 
+CORS_URLS_REGEX = r"^/.*$"
+
+EVENTSTREAM_ALLOW_ORIGIN = "*"  # allow all origins
 
 TEMPLATES = [
     {
