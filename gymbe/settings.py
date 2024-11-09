@@ -25,8 +25,10 @@ SECRET_KEY = "django-insecure-408d82y)^k-+-g@9_qs6w6nou)&o$c%&@t86r0t7&a4#4n6cby
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+]
 
 # Application definition
 
@@ -51,6 +53,13 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "gymbe.urls"
+
+# CORS settings
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:4200",
+    "http://127.0.0.1:4200",
+]
+
 
 TEMPLATES = [
     {
