@@ -18,11 +18,12 @@ class UserWorkoutProfile(models.Model):
     weight = models.FloatField(help_text="Weight in kg")
     height = models.FloatField(help_text="Height in cm")
     how_many_times_per_week = models.PositiveIntegerField(
-        help_text="Gym visits per week", blank=True
+        help_text="Gym visits per week", blank=True, null=True
     )
     how_much_time_in_gym = models.PositiveIntegerField(
-        help_text="Average time spent at the gym per session", blank=True
+        help_text="Average time spent at the gym per session", blank=True, null=True
     )
+
     reason = models.CharField(
         max_length=2, choices=WORKOUT_GOAL_CHOICES, help_text="Workout goal"
     )
