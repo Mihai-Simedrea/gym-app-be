@@ -54,6 +54,6 @@ def generate_workout_plan(request, user_id):
     workout_plan = generate_exercises(frequency, goal)
 
     return Response(
-        {"user": user_profile.name, "goal": goal, "workout_plan": workout_plan},
+        workout_plan,
         status=status.HTTP_200_OK,
     )
