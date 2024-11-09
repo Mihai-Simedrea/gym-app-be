@@ -6,7 +6,9 @@ class UserWorkoutProfile(models.Model):
     WORKOUT_GOAL_CHOICES = [
         ("WL", "Weight Loss"),
         ("MG", "Muscle Gain"),
-        ("TN", "Toning"),
+        ("FL", "Flexibility"),
+        ("EN", "Endurance"),
+        ("GH", "General Health"),
     ]
 
     # Fields corresponding to the form controls
